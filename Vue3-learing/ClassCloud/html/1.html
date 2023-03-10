@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/2.css">
+</head>
+<body>
+    <div id="img">
+    <div class="center" v-for="item in details ">
+        <div class="header">
+            <img :src="item.image" alt=""  @mouseenter="changeShow(item)" @mouseleave="changeShow(item)">
+            <template v-if="item.show">
+                <div class="hei" >
+                    <div class="tap1">
+                        <span >发起签到</span>
+                    </div>
+                    <div class="tap2">
+                        <span >课堂表现</span>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <div class="bottom">
+            <div class="tecname">
+                <span>{{item.tecname}}</span>
+            </div>
+            <div class="classname">
+                <span>{{item.classname}}</span>
+            </div>
+            <div class="num">
+                <span>{{item.classnum}}</span>
+                <span class="jf">进入></span>
+            </div>
+            <div v-if="item.course" class="endimg">
+                <img :src="item.endimg" alt="">
+            </div>
+            <div class="avatar">
+                <img :src="item.avatar" alt="">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+        <!-- Mount App 挂在App -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="../js/main.js"></script>
+        <script>
+            const mountedApp = app.mount('#img')
+        </script>
+</body>
+</html>
